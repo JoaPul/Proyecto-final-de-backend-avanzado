@@ -8,6 +8,8 @@ api.get('/status', (_, res) => {
   return res.json({
     msg: 'API funcionando',
   })
-})
+});
+
+
 
 export default api;

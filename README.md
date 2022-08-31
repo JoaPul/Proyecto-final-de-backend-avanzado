@@ -73,6 +73,7 @@ Desarrollar una API RESTFULL con nodejs y express, usando una base de mongodb de
 - Los clientes no pueden encontrar productos que no tengan stock en inventario
 - El cliente puede ver su historial de compras
 - Los precios de los artículos de las compras pasadas, no se verán afectados aunque los precios sean editados directamente de los productos
+  //////
 - Al realizar un pago de un carrito, se puede ingresar un cupón de descuento, los son registrados previamente por los mismos vendedores}
 - Existen dos tipos de cupones, % y monto
 - Los clientes pueden buscar productos, filtrándolos y ordenándolos por

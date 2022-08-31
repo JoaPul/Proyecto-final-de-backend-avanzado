@@ -15,8 +15,8 @@ const schema = new mongoose.Schema({
     exteriorNo: { type: Number, required: true },
     intiriorNo: { type: Number },
     betweenStr: { type: String, required: true },
-    City: { type: String, required: true },
-    Country: { type: String, required: true },
+    city: { type: String, required: true },
+    country: { type: String, required: true },
     zipCode: { type: Number, required: true },
     references: { type: String, required: true },
   },
@@ -27,12 +27,13 @@ const schema = new mongoose.Schema({
   role: {
     type: String,
     enum: ['Administrator', 'Employee', 'Customer'],
-    defaul: 'Client',
+    defaul: 'Customer',
     required: true,
   },
-  cart: {
-    style: Array,
-    defaul: []
+  //se cambia a false cuando se paga el carrito y se cambia a true cuando se agrega un producto
+  carritoActivo: {
+    type: Boolean,
+    default: false
   }
 })
 
