@@ -26,7 +26,7 @@ const schema = new mongoose.Schema({
   personalCon: String,
   role: {
     type: String,
-    enum: ['Admin', 'Employee', 'Customer'],
+    enum: ['Admin', 'Seller', 'Customer'],
     defaul: 'Customer',
     required: true,
   },

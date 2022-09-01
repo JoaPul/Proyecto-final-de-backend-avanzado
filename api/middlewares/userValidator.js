@@ -1,6 +1,6 @@
 import joi from "joi";
 
-let options = ['Administrator', 'Employee', 'Customer'];
+let options = ['Admin', 'Employee', 'Customer'];
 const createUserSchema = joi.object({
   firstName: joi.string().required(),
   lastName: joi.string().required(),
@@ -16,7 +16,7 @@ const createUserSchema = joi.object({
     references: joi.string().required(),
   },
   email: joi.string().required(),
-  password: joi.string().valid("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,15}$/").required(),
+  password: joi.string().required(),
   phone: joi.number().required(),
   role: joi.string().valid(...options).default('Customer').required(),
   carritoActivo: joi.boolean().default(false)

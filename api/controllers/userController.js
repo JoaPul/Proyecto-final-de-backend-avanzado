@@ -81,4 +81,42 @@ const login = async (req, res) => {
   }
 }
 
-export { getUsers, register, login };
+const crearAdmin = async (req, res) => {
+  try {
+    const token = req.headers.Authorization;
+
+    if (!token) {
+      return res.status(400).json({
+        msg: 'Cabecera Authorization faltante',
+      });
+    }
+
+    const payload = jwt.decode(token, config.jwt.secret);
+
+    const user = await User.findById(payload.userRole);
+
+    if (!user) {
+      return res.status(401).json({
+        msg: "No tienes privilegios para crear Admin",
+      });
+    } else if (user == "Admin") {
+      const { id } = req.params;
+      const admin = await User.findByIdAndUpdate(id, { role: "Admin" }, { new: true });
+      return res.status(200).json({
+        msg: "Ha nacido un nuevo Admin",
+        data: admin
+      });
+    } else {
+      return res.status(401).json({
+        msg: "No tienes privilegios para crear Admin",
+      });
+    }
+  } catch (error) {
+    res.status(400).json({
+      msg: 'Error de validación',
+      error
+    });
+  }
+}
+
+export { getUsers, register, login, crearAdmin };
