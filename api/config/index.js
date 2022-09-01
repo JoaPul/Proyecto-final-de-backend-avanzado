@@ -7,9 +7,9 @@ export default {
     port: process.env.PORT || 3000,
   },
   database: {
-    uri: process.env.URI || 'mongodb://localhost/cine',
+    uri: process.env.URI || 'mongodb://localhost/befinal',
   },
   jwt: {
-    secret: process.env.JWT_SECRET,
+    secret: process.env.JWT_SECRET || "kjsdofi248r459lksk9098",
   }
 };

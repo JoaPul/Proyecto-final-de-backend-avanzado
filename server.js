@@ -1,7 +1,7 @@
 import http from 'http';
 import api from './api/api.js';
 import config from './api/config/index.js';
-import database from './api/config/database.js';
+import database from './api/config/db.js';
 
 const server = http.createServer(api);
 
